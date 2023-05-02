@@ -14,7 +14,7 @@ if __name__ == '__main__':
     ]
 
     dict1 = MyReplDict()
-    
+
     syncObjs = [
         SyncObj(node, nodes, consumers=[dict1])
         for node in nodes
@@ -28,4 +28,7 @@ if __name__ == '__main__':
             for n in syncObj.otherNodes:
                 print(f"{n.id}")
             print()
+
+        dict1.lock("mutex_key", sync=True)
         dict1.set(f'testValue_{random.randint(1, 100)}', sync=True)
+        dict1.unlock("mutex_key", sync=True)
