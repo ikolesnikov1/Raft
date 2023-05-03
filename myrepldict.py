@@ -2,6 +2,7 @@ from syncobj import SyncObjConsumer, replicated
 import threading
 import time
 
+
 def one_byte_hash(s):
     return hash(s) % 256
 
