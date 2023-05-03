@@ -4,7 +4,7 @@ import time
 
 
 def one_byte_hash(s):
-    return hash(s) % 256
+    return hash(s) % 256 
 
 
 class MyReplDict(SyncObjConsumer):
