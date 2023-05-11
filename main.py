@@ -29,6 +29,6 @@ if __name__ == '__main__':
                 print(f"{n.id}")
             print()
 
-        dict1.lock("mutex_key", sync=True)
+        dict1.lock("mutex_key")
         dict1.set(f'testValue_{random.randint(1, 100)}')
-        dict1.unlock("mutex_key", sync=True)
+        dict1.unlock("mutex_key")
