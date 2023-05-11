@@ -14,10 +14,8 @@ class MyReplDict(SyncObjConsumer):
         self.__lock = {}
 
     @replicated
-    def set(self, key, value):
-        self.__lock[key] = True
+    def set(self, value):
         self.__data[one_byte_hash(value)] = value
-        self.__lock[key] = False
 
     def values(self):
         return self.__data.values()
@@ -34,6 +32,7 @@ class MyReplDict(SyncObjConsumer):
 
         return True
 
+    @replicated
     def unlock(self, key):
         self.__lock[key] = False
 
